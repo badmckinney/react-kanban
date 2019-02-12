@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bcrypt": "^3.0.4",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "bookshelf": "^0.14.2",
     "connect-flash": "^0.1.1",
@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "./node_modules/nodemon/bin/nodemon.js ./server.js"
+    "dev": "./node_modules/nodemon/bin/nodemon.js ./server/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -3,10 +3,10 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      host: 'postgres-primary-db',
+      host: 'localhost',
       user: 'badmckinney',
       password: 'password',
-      database: 'express_gallery'
+      database: 'react_kanban'
     }
   },
 
@@ -32,7 +32,7 @@ module.exports = {
       host: 'postgres-primary-db',
       user: 'badmckinney',
       password: 'password',
-      database: 'express_gallery'
+      database: 'react_kanban'
     },
     pool: {
       min: 2,
