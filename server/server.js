@@ -13,6 +13,18 @@ const ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 8080;
 const SESSION_SECRET = process.env.SESSION_SECRET || 'bulbasaur';
 
+if (!PORT) {
+  throw new Error('PORT not set');
+}
+
+if (!ENV) {
+  throw new Error('ENV not set');
+}
+
+if (!SESSION_SECRET) {
+  throw new Error('SESSION_SECRET not set');
+}
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
