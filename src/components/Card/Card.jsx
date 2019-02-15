@@ -1,21 +1,23 @@
 import React from 'react';
+import './Card.scss';
 
 const Card = (props) => {
-  const { id, title, body, priority, status, assignedBy, assignedTo } = props;
 
   return (
-    <div>
+    <div className="card">
       <div className="card-top">
-        <h3 className="task-name">{title}</h3>
-        <p className="id">Card-id #{Array(Math.max(3 - String(id).length + 1, 0)).join(0) + id}</p>
+        <h3 className="task-name">{props.title}</h3>
+        <p className="id">Card-id #{Array(Math.max(3 - String(props.id).length + 1, 0)).join(0) + props.id}</p>
       </div>
-      <p className="body">{body}</p>
-      <p className="priority">{priority}</p>
-      <p className="assigned-by">Assigned by: {assignedBy}</p>
+      <p className="body">{props.body}</p>
+      <p className="priority">Priority: {props.priority}</p>
+      <p className="assigned-by">Assigned by: {props.assignedBy}</p>
       <div className="card-bottom">
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-        <p className="assigned-to">{status} – {assignedTo}</p>
+        <div className="card-buttons">
+          <button className="edit">Edit</button>
+          <button className="delete">Delete</button>
+        </div>
+        <p className="assigned-to">{props.status} – {props.assignedTo}</p>
       </div>
     </div>
   );

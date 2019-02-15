@@ -1,10 +1,11 @@
 import React from 'react';
 import Card from '../Card';
+import './Column.scss';
 
 const Column = (props) => {
   const { status } = props;
-
   const cards = props.cards.map((card) => {
+
     return (
       <Card key={card.id}
         id={card.id}
@@ -19,7 +20,7 @@ const Column = (props) => {
 
   return (
     <div className="column">
-      <h2 className="status">{status}</h2>
+      <h2 className="status">{props.status}</h2>
       {cards}
     </div>
   )
