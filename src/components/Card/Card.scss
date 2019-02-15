@@ -1,3 +1,18 @@
+$main-font: 'Quicksand', sans-serif;
+$body-font: 'Noto Sans JP', sans-serif;
+$header-color: #4b525a;
+$queue-border: rgb(255, 162, 57);
+$queue-hover: rgb(236, 136, 20);
+$queue-background: rgba(255, 162, 57, 0.2);
+$progress-border: rgb(125, 203, 72);
+$progress-hover: rgb(88, 172, 33);
+$progress-background: rgba(125, 203, 72, 0.2);
+$done-border: rgb(190, 198, 210);
+$done-hover: rgb(132, 152, 182);
+$done-background: rgba(190, 198, 210, 0.2);
+
+
+
 body {
   #root {
     .App {
@@ -6,19 +21,164 @@ body {
           .column {
             .card {
               width: 85%;
-              border: 1px solid black;
-              padding: 1em;
+              border-radius: 5px;
+              padding: 1em 1em 0.5em 1em;
               margin-bottom: 0.5em;
+              font-family: $body-font;
+              color: $header-color;
 
               .card-top {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+
+                .task-name,
+                .id {
+                  margin: 0;
+                }
+
+                .task-name {
+                  font-size: 0.8em;
+                }
+
+                .id {
+                  font-size: 0.7em;
+                }
+              }
+
+              .body,
+              .priority,
+              .assigned-by {
+                font-weight: 500;
+                margin: 0.2em 0em;
+              }
+
+              .body {
+                font-size: 0.7em;
+              }
+
+              .priority,
+              .assigned-by {
+                font-size: 0.7em;
+                color: rgba(75,82,90, 0.8);
               }
               
               .card-bottom {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                margin: 0.5em 0em;
+
+                .assigned-to {
+                  margin: 0;
+                  text-transform: uppercase;
+                  font-size: 0.6em;
+                  font-weight: 500;
+                  color: rgba(75,82,90, 0.8);
+                }
+              }
+
+              
+            }
+          }
+          .column:nth-child(1) {
+            .card {
+              border: 1.5px solid $queue-border;
+              background-color: $queue-background;
+
+              .card-bottom {
+                .card-buttons {
+                  .edit {
+                    margin-right: 1em;
+                  }
+
+                  .edit,
+                  .delete {
+                    border: 1.4px solid $queue-border;
+                    background: transparent;
+                    color: $queue-border;
+                    font-family: $body-font;
+                    font-weight: 700;
+                    padding: 0em 1em 0em 1em;
+                    transition: color 0.25s ease-in-out;
+                    transition: border 0.25s ease-in-out;
+                  }
+
+                  .edit:hover,
+                  .delete:hover {
+                    color: $queue-hover;
+                    border: 1.4px solid $queue-hover;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+
+          .column:nth-child(2) {
+            .card {
+              border: 1.5px solid $progress-border;
+              background-color: $progress-background;
+
+              .card-bottom {
+                .card-buttons {
+                  .edit {
+                    margin-right: 1em;
+                  }
+
+                  .edit,
+                  .delete {
+                    border: 1.4px solid $progress-border;
+                    background: transparent;
+                    color: $progress-border;
+                    font-family: $body-font;
+                    font-weight: 700;
+                    padding: 0em 1em 0em 1em;
+                    transition: color 0.25s ease-in-out;
+                    transition: border 0.25s ease-in-out;
+                  }
+
+                  .edit:hover,
+                  .delete:hover {
+                    color: $progress-hover;
+                    border: 1.4px solid $progress-hover;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+
+          .column:nth-child(3) {
+            .card {
+              border: 1.5px solid $done-border;
+              background-color: $done-background;
+
+              .card-bottom {
+                .card-buttons {
+                  .edit {
+                    margin-right: 1em;
+                  }
+
+                  .edit,
+                  .delete {
+                    border: 1.4px solid $done-border;
+                    background: transparent;
+                    color: $done-border;
+                    font-family: $body-font;
+                    font-weight: 700;
+                    padding: 0em 1em 0em 1em;
+                    transition: color 0.25s ease-in-out;
+                    transition: border 0.25s ease-in-out;
+                  }
+
+                  .edit:hover,
+                  .delete:hover {
+                    color: $done-hover;
+                    border: 1.4px solid $done-hover;
+                    cursor: pointer;
+                  }
+                }
               }
             }
           }
@@ -27,3 +187,5 @@ body {
     }
   }
 }
+
+

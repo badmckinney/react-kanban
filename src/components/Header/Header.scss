@@ -1,3 +1,6 @@
+$header-color: #4b525a;
+$main-font: 'Quicksand', sans-serif;
+
 body {
   #root {
     .App {
@@ -7,7 +10,17 @@ body {
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          padding: 0em 1em 0em 1em;
+          background-color: $header-color;
+          font-family: $main-font;
+          padding: 0em 1em;
+          height: 2.5em;
+
+          .header-title {
+            margin: 0;
+            font-weight: 400;
+            font-size: 1.2em;
+            color: #fff;
+          }
         }
       }
     }

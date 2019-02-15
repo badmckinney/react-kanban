@@ -1,0 +1,31 @@
+$header-color: #4b525a;
+$main-font: 'Quicksand', sans-serif;
+
+body {
+  #root {
+    .App {
+      .board {
+        .header {
+          .add {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60%;
+            width: 10%;
+            background-color: $header-color;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.5s ease-in-out;
+          }
+
+          .add:hover {
+            background-color: #fff;
+            color: $header-color;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
