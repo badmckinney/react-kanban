@@ -24,12 +24,14 @@ class Board extends Component {
       <div className="board">
         <Header header={this.state.header}
           handleAddClick={this.handleAddClick} />
-        <Column status={"In Queue"}
-          cards={this.props.cards} />
-        <Column status={"In Progress"}
-          cards={this.props.cards} />
-        <Column status={"Done"}
-          cards={this.props.cards} />
+        <div className="columns">
+          <Column status={"In Queue"}
+            cards={this.props.cards} />
+          <Column status={"In Progress"}
+            cards={this.props.cards} />
+          <Column status={"Done"}
+            cards={this.props.cards} />
+        </div>
       </div>
     );
   }
