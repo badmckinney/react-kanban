@@ -1,7 +1,6 @@
 version: '3'
 services:
   express-server:
-    image: ${DOCKERHUB_NAME}/${IMAGE_NAME}:${IMAGE_VERSION}
     depends_on:
       - postgres-primary-db
     command: ["npm", "run", "dev"]
@@ -9,9 +8,6 @@ services:
     volumes:
       - ".:/src/app:rw"
     env_file: .env
-    environment:
-      ENVIRONMENT: production
-      NODE_ENV: production
     ports:
       - "${EXPRESS_HOST_PORT}:${EXPRESS_CONTAINER_PORT}"
     networks:
