@@ -20,17 +20,29 @@ class Board extends Component {
   };
 
   render() {
+    const cards = this.props.cards;
+    console.log(this.props.cards);
+    const queued = cards.filter(card => {
+      return card.status === 'queue';
+    });
+    const doing = cards.filter(card => {
+      return card.status === 'in progress';
+    });
+    const done = cards.filter(card => {
+      return card.status === 'done';
+    })
+
     return (
       <div className="board">
         <Header header={this.state.header}
           handleAddClick={this.handleAddClick} />
         <div className="columns">
           <Column status={"In Queue"}
-            cards={this.props.cards} />
+            cards={queued} />
           <Column status={"In Progress"}
-            cards={this.props.cards} />
+            cards={doing} />
           <Column status={"Done"}
-            cards={this.props.cards} />
+            cards={done} />
         </div>
       </div>
     );
