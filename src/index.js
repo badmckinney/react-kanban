@@ -4,10 +4,22 @@ import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import cardReducer from './reducers';
-let store = createStore(cardReducer);
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux';
+
+const composeEnhancers =
+  typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+
+    }) : compose;
+
+const enhancer = composeEnhancers(
+  applyMiddleware(ReduxThunk)
+);
+const store = createStore(cardReducer, enhancer);
 
 ReactDOM.render(
   <Provider store={store}>
