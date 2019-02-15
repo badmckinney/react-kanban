@@ -3,7 +3,6 @@ import Card from '../Card';
 import './Column.scss';
 
 const Column = (props) => {
-  const { status } = props;
   const cards = props.cards.map((card) => {
 
     return (
