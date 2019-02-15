@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Board from '../Board';
 import { connect } from 'react-redux';
+import { loadCards } from '../../actions';
 import './App.css';
 
 class App extends Component {
@@ -8,6 +9,10 @@ class App extends Component {
     super(props)
 
     this.state = {};
+  }
+
+  componentDidMount() {
+    return this.props.loadCards();
   }
 
   render() {
@@ -26,7 +31,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    loadCards: () => {
+      return dispatch(loadCards());
+    }
+  };
 };
 
 App = connect(
