@@ -1,2 +1,2 @@
-import AddBook from './AddBook';
-export default AddBook;
+import AddCard from './AddCard';
+export default AddCard;

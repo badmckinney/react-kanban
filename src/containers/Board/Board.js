@@ -21,7 +21,6 @@ class Board extends Component {
 
   render() {
     const cards = this.props.cards;
-    console.log(this.props.cards);
     const queued = cards.filter(card => {
       return card.status === 'queue';
     });
