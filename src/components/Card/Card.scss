@@ -1,0 +1,29 @@
+body {
+  #root {
+    .App {
+      .board {
+        .columns {
+          .column {
+            .card {
+              width: 85%;
+              border: 1px solid black;
+              padding: 1em;
+              margin-bottom: 0.5em;
+
+              .card-top {
+                display: flex;
+                justify-content: space-between;
+              }
+              
+              .card-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

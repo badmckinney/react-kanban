@@ -1,0 +1,21 @@
+body {
+  #root {
+    .App {
+      .board {
+        .columns {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+
+          .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 33%;
+            border: 1px solid black; 
+          }
+        }
+      }
+    }
+  }
+}
