@@ -11,23 +11,21 @@ class App extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
+  componentWillMount() {
     return this.props.loadCards();
   }
 
   render() {
     return (
       <div className="App">
-        <Board cards={this.props.cards} />
+        <Board />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return {
-    cards: state
-  };
+  return {};
 };
 
 const mapDispatchToProps = (dispatch) => {

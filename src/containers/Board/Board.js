@@ -49,7 +49,7 @@ class Board extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return { cards: state.cards };
 }
 
 const mapDispatchToProps = (dispatch) => {

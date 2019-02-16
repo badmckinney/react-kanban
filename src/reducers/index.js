@@ -1,13 +1,15 @@
 import { LOAD_CARDS, ADD_CARD, DELETE_CARD } from '../actions';
 
-const cardReducer = (state = [], action) => {
+const cardReducer = (state = {
+  cards: []
+}, action) => {
   switch (action.type) {
     case LOAD_CARDS:
-      return [].concat(action.payload);
+      return Object.assign({}, state, { cards: action.payload });
     case ADD_CARD:
-      return [...state, action.payload];
+      return Object.assign({}, state, { cards: [...state.cards, action.payload] });
     case DELETE_CARD:
-      return [].concat(action.payload);
+      return Object.assign({}, state, { cards: action.payload });
     default:
       return state;
   }
