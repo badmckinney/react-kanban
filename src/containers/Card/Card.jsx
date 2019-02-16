@@ -32,8 +32,8 @@ class Card extends Component {
         <p className="assigned-by">Assigned by: {this.props.assignedBy}</p>
         <div className="card-bottom">
           <div className="card-buttons" data-id={this.props.id} data-title={this.props.title} data-body={this.props.body}
-            data-priority={this.props.priority} data-assignedby={this.props.assignedBy} data-status={this.props.status}
-            data-assignedto={this.props.assignedTo}>
+            data-priority={this.props.priority_id} data-assignedby={this.props.assignedBy_id} data-status={this.props.status_id}
+            data-assignedto={this.props.assignedTo_id}>
             <EditCardButton />
             <button id={this.props.id} className="delete" onClick={this.handleDelete}>Delete</button>
           </div>
