@@ -2,6 +2,7 @@
  * Actions
  */
 export const LOAD_CARDS = 'LOAD_CARDS';
+export const LOAD_USERS = 'LOAD_USERS';
 export const ADD_CARD = 'ADD_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
 export const EDIT_CARD = 'EDIT_CARD';
@@ -19,6 +20,21 @@ export const loadCards = () => {
         return dispatch({
           type: LOAD_CARDS,
           payload: cards
+        });
+      });
+  }
+}
+
+export const loadUsers = () => {
+  return (dispatch) => {
+    return fetch('/cards/users')
+      .then((response) => {
+        return response.json();
+      })
+      .then((users) => {
+        return dispatch({
+          type: LOAD_USERS,
+          payload: users
         });
       });
   }
@@ -46,7 +62,6 @@ export const addCard = (card) => {
 };
 
 export const deleteCard = (id) => {
-  console.log('action', id);
   return (dispatch) => {
     return fetch('/cards', {
       method: 'DELETE',
@@ -68,5 +83,22 @@ export const deleteCard = (id) => {
 };
 
 export const editCard = (card) => {
-  console.log(card);
+  return (dispatch) => {
+    return fetch('/cards', {
+      method: 'PUT',
+      body: JSON.stringify(card),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((cards) => {
+        return dispatch({
+          type: EDIT_CARD,
+          payload: cards
+        });
+      });
+  }
 };
