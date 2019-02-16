@@ -12,6 +12,7 @@ class EditCardButton extends Component {
 
     this.state = {
       cardData: {
+        id: '',
         title: '',
         body: '',
         priority_id: '',
@@ -24,6 +25,7 @@ class EditCardButton extends Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.sendCardData = this.sendCardData.bind(this);
   }
 
   sendCardData() {
@@ -31,10 +33,16 @@ class EditCardButton extends Component {
   }
 
   openModal(e) {
-    console.log(e.target.parentNode.dataset);
+    const cardData = e.target.parentNode.dataset;
     this.setState({
       cardData: {
-
+        id: cardData.id,
+        title: cardData.title,
+        body: cardData.body,
+        priority_id: cardData.priority,
+        status_id: cardData.status,
+        created_by: cardData.assignedby,
+        assigned_to: cardData.assignedto
       },
       modalIsOpen: true
     });
