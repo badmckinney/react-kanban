@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCard } from '../../actions';
-import './AddCard.scss';
+import { editCard } from '../../actions';
+import './EditCard.scss';
 
-class AddCard extends Component {
+class EditCard extends Component {
   constructor(props) {
     super(props);
 
@@ -60,7 +60,7 @@ class AddCard extends Component {
     this.props.close();
     const { title, body, priority_id, status_id, created_by, assigned_to } = this.state;
 
-    this.props.onAdd({
+    this.props.onEdit({
       title,
       body,
       priority_id,
@@ -81,9 +81,9 @@ class AddCard extends Component {
 
   render() {
     return (
-      <form className="add-form">
+      <form className="edit-form">
         <div className="form-header">
-          <h2 className="form-title">Add task</h2>
+          <h2 className="form-title">Edit task</h2>
         </div>
         <div className="title">
           <label htmlFor="title">Title:</label>
@@ -135,7 +135,7 @@ class AddCard extends Component {
           <label htmlFor="assigned_to">Assigned To:</label>
           <input type="text" name="assigned_to" value={this.state.assigned_to} onChange={this.handleAssignedToOnChange} />
         </div>
-        <button onClick={this.handleSubmit}>Add</button>
+        <button onClick={this.handleSubmit}>Submit</button>
       </form>
     );
   }
@@ -147,16 +147,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAdd: (card) => {
-      dispatch(addCard(card));
+    onEdit: (card) => {
+      dispatch(editCard(card));
     }
   }
 };
 
-AddCard = connect(
+EditCard = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddCard);
+)(EditCard);
 
-export default AddCard;
-
+export default EditCard;

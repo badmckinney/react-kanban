@@ -4,6 +4,7 @@
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const ADD_CARD = 'ADD_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
+export const EDIT_CARD = 'EDIT_CARD';
 
 /**
  * Action Creators
@@ -64,4 +65,8 @@ export const deleteCard = (id) => {
         });
       });
   }
+};
+
+export const editCard = (card) => {
+  console.log(card);
 };

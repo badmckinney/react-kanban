@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import EditCardButton from '../EditCardButton'
 import { deleteCard } from '../../actions';
 import './Card.scss';
 
@@ -30,8 +31,10 @@ class Card extends Component {
         <p className="priority">Priority: {this.props.priority}</p>
         <p className="assigned-by">Assigned by: {this.props.assignedBy}</p>
         <div className="card-bottom">
-          <div className="card-buttons">
-            <button className="edit">Edit</button>
+          <div className="card-buttons" data-id={this.props.id} data-title={this.props.title} data-body={this.props.body}
+            data-priority={this.props.priority} data-assignedby={this.props.assignedBy} data-status={this.props.status}
+            data-assignedto={this.props.assignedTo}>
+            <EditCardButton />
             <button id={this.props.id} className="delete" onClick={this.handleDelete}>Delete</button>
           </div>
           <p className="assigned-to">{this.props.status} – {this.props.assignedTo}</p>
