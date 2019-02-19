@@ -35,7 +35,8 @@ class Board extends Component {
       <div className="board">
         <Header header={this.state.header}
           handleAddClick={this.handleAddClick}
-          auth={this.props.auth} />
+          auth={this.props.auth}
+          error={this.props.error} />
         <div className="columns">
           <Column status={"In Queue"}
             cards={queued} />
@@ -50,7 +51,7 @@ class Board extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { cards: state.cards, auth: state.auth };
+  return { cards: state.cards, auth: state.auth, error: state.error };
 }
 
 const mapDispatchToProps = (dispatch) => {
