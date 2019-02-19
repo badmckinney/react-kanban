@@ -9,6 +9,9 @@ export const DELETE_CARD = 'DELETE_CARD';
 export const EDIT_CARD = 'EDIT_CARD';
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const NAME_TAKEN = 'NAME_TAKEN';
+export const REGISTER_ERROR = 'REGISTER_ERROR';
 
 /**
  * Action Creators
@@ -74,7 +77,18 @@ export const addUser = (user) => {
       }
     })
       .then((response) => {
-        console.log('adduser response', response)
+        if (response.status === 400) {
+          return dispatch({
+            type: NAME_TAKEN,
+            payload: 'Username already taken'
+          })
+        }
+        if (response.status !== 200) {
+          return dispatch({
+            type: REGISTER_ERROR,
+            payload: 'Unable to create account'
+          })
+        }
         return response.json();
       })
       .then((body) => {
@@ -138,12 +152,21 @@ export const loginUser = (user) => {
       }
     })
       .then((response) => {
+        if (response.status !== 200) {
+          throw new Error('Bad username or password');
+        }
         return response.json();
       })
       .then((success) => {
         return dispatch({
           type: LOGIN_USER,
           payload: success
+        });
+      })
+      .catch((err) => {
+        return dispatch({
+          type: LOGIN_ERROR,
+          payload: 'Bad username or password'
         });
       });
   }
