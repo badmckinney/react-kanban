@@ -1,0 +1,35 @@
+$body-font: 'Noto Sans JP', sans-serif;
+$header-color: #4b525a;
+
+body {
+  .ReactModalPortal {
+    .overlay {
+      .ReactModal__Content {
+        .login-form {
+          .register-message {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items:center;
+
+            .register {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background: transparent;
+              font-size: 1em;
+              margin: 0em;
+              width: 40%;
+              height: 40%;
+              color: $header-color;
+              text-decoration: underline;
+              padding: 0;
+              text-transform: capitalize;
+            }
+          
+          }
+        }
+      }
+    }
+  }
+}
