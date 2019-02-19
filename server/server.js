@@ -1,12 +1,10 @@
 const express = require('express');
 const session = require('express-session');
-const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const redis = require('connect-redis')(session);
 const LocalStrategy = require('passport-local');
-const flash = require('connect-flash');
 const router = require('./routes/cards');
 const authRouter = require('./routes/auth');
 const User = require('../database/models/User');
@@ -37,8 +35,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use(methodOverride('_method'));
-app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -85,7 +81,6 @@ passport.use(new LocalStrategy(function (username, password, done) {
       }
     })
     .catch(err => {
-      console.log('catch')
       return done(err);
     });
 }));
