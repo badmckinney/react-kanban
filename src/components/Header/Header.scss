@@ -18,7 +18,7 @@ body {
           .kanban-tools {
             display: flex;
             height: 100%;
-            width: 100%;
+            width: 75%;
             justify-content: flex-start;
             align-items: center;
 
@@ -28,6 +28,19 @@ body {
               font-size: 1.2em;
               color: #fff;
             }
+          }
+
+          .error{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-weight: 500;
+            font-size: 0.8em;
+            justify-self: flex-start;
+            color: rgb(214, 57, 57);
           }
         }
       }
