@@ -14,20 +14,20 @@ router.post('/register', (req, res) => {
   User.where({ username: req.body.username }).fetch()
     .then((dbUser) => {
       if (dbUser) {
-        req.flash('error', 'That username already exists')
+        res.status(400);
         return res.json({ success: false });
       }
 
       bcrypt.genSalt(saltRounds, (err, salt) => {
         if (err) {
           res.status(500);
-          res.send(err);
+          res.json({ success: false });
         }
 
         bcrypt.hash(req.body.password, salt, (err, hash) => {
           if (err) {
             res.status(500);
-            res.send(err);
+            res.json({ success: false });
           }
 
           return new User({
@@ -42,7 +42,7 @@ router.post('/register', (req, res) => {
               return res.json({ success: true });
             })
             .catch((err) => {
-              req.flash('error', 'Error creating account')
+              res.status(500);
               return res.json({ success: false });
             });
         });
