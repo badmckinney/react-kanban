@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCard } from '../../actions';
+import UserList from '../UserList';
 import './AddCard.scss';
 
 class AddCard extends Component {
@@ -129,11 +130,15 @@ class AddCard extends Component {
         </div>
         <div className="created-by">
           <label htmlFor="created_by">Assigned By:</label>
-          <input type="text" name="created_by" value={this.state.created_by} onChange={this.handleAssignedByOnChange} />
+          <select name="created_by" defaultValue={this.state.created_by} onChange={this.handleAssignedByOnChange}>
+            <UserList selected={this.state.created_by} />
+          </select>
         </div>
         <div className="assigned-to">
           <label htmlFor="assigned_to">Assigned To:</label>
-          <input type="text" name="assigned_to" value={this.state.assigned_to} onChange={this.handleAssignedToOnChange} />
+          <select name="assigned_to" defaultValue={this.state.assigned_to} onChange={this.handleAssignedToOnChange}>
+            <UserList selected={this.state.assigned_to} />
+          </select>
         </div>
         <button onClick={this.handleSubmit}>Add</button>
       </form>
