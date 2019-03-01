@@ -40,7 +40,6 @@ const cardReducer = (state = {
     case NAME_TAKEN:
       return Object.assign({}, state, { error: action.payload });
     case REGISTER_ERROR:
-      console.log('hit', action.payload);
       return Object.assign({}, state, { error: action.payload });
     default:
       return state;
