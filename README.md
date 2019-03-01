@@ -1,4 +1,5 @@
 # React Kanban
+<<<<<<< HEAD
 > A digital Kanban board made with React
 
 ![kanban_guide_print_kpo_bleed_board2-1024x517](https://cloud.githubusercontent.com/assets/4650739/15059276/3bb2092e-12bd-11e6-9c12-d92747e77bc5.jpg)
@@ -152,3 +153,35 @@ Add **drag and drop** functionality
 [Taiga](http://www.taiga.io)
 
 [Asana](http://www.asana.com)
+=======
+
+A digital Kanban Board (task manager) built with React, Redux and PostgreSQL 
+
+## Features
+
+- Full authentication & Password encryption
+- Client-side & Server-side Session Management
+
+## Technologies & Frameworks
+
+* React
+* Redux
+* Redux-thunk
+* Express
+* Express Session
+* Redis
+* Passport.js
+* Bcryptjs
+* Bookshelf.js
+* Knex.js
+* PostgreSQL
+* Docker
+* Sass
+
+## Screenshots
+
+![Kanban Board](./screenshots/board.png "Kanban Board")
+___
+![Login Modal](./screenshots/login.png "Login Modal")
+
+>>>>>>> master
